@@ -72,6 +72,18 @@
 			<trans-unit id="sys_file_reference.tx_imageeffects_filter.brooklyn">
 				<source>Brooklyn</source>
 			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_filter.clarendon">
+				<source>Clarendon</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_filter.earlybird">
+				<source>Earlybird</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_filter.gingham">
+				<source>Gingham</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_filter.hudson">
+				<source>Hudson</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
