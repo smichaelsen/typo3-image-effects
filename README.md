@@ -56,7 +56,7 @@ You can use any arguments just like you would with `<f:image>`, just notice:
 
 ## Attribution
 
-![Sample Image](Resources/Public/Images/sample_nofilter.jpg)
+![Sample Image](Resources/Public/Images/sample_nofilter.jpg)<br>
 Sample image shown in the filter selector in the backend was published on [flickr](https://www.flickr.com/photos/a-issleib/9348841209/) by Andreas Issleib under
 [CC-BY-NC-ND 2.0 License](https://creativecommons.org/licenses/by-nc-nd/2.0/). The author kindly approved the usage of derivates
 of his photo for the purpose of this software. Thank you!
