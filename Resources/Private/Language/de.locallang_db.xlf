@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-06-22T21:10:11Z">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-06-23T08:56:28Z">
 		<header>
 			<generator>LFEditor</generator>
 		</header>
@@ -38,6 +38,62 @@
 			<target>+20%</target>
 		</trans-unit>
 		<trans-unit id="sys_file_reference.tx_imageeffects_brightness.plus30" approved="yes">
+			<source>+30%</source>
+			<target>+30%</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_filter" approved="yes">
+			<source>Filter (disables above effects)</source>
+			<target>Filter (deaktiviert oben ausgewählte Effekte)</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_filter.1977" approved="yes">
+			<source>1977</source>
+			<target>1977</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_filter.aden" approved="yes">
+			<source>Aden</source>
+			<target>Aden</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_filter.brannan" approved="yes">
+			<source>Brannan</source>
+			<target>Brannan</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_filter.brooklyn" approved="yes">
+			<source>Brooklyn</source>
+			<target>Brooklyn</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_filter.nofilter" approved="yes">
+			<source>#nofilter</source>
+			<target>#nofilter</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_saturation" approved="yes">
+			<source>Saturation</source>
+			<target>Farbsättigung</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_saturation.dont_change" approved="yes">
+			<source>don't change</source>
+			<target>nicht verändern</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus10" approved="yes">
+			<source>-10%</source>
+			<target>-10%</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus20" approved="yes">
+			<source>-20%</source>
+			<target>-20%</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus30" approved="yes">
+			<source>-30%</source>
+			<target>-30%</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_saturation.plus10" approved="yes">
+			<source>+10%</source>
+			<target>+10%</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_saturation.plus20" approved="yes">
+			<source>+20%</source>
+			<target>+20%</target>
+		</trans-unit>
+		<trans-unit id="sys_file_reference.tx_imageeffects_saturation.plus30" approved="yes">
 			<source>+30%</source>
 			<target>+30%</target>
 		</trans-unit>
