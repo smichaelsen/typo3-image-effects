@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages">
+		<header/>
+		<body>
+			<trans-unit id="sys_file_reference.imageEffectsPalette">
+				<source>Image Effects</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_brightness">
+				<source>Brightness</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_brightness.minus30">
+				<source>-30%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_brightness.minus20">
+				<source>-20%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_brightness.minus10">
+				<source>-10%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_brightness.dont_change">
+				<source>don't change</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_brightness.plus10">
+				<source>+10%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_brightness.plus20">
+				<source>+20%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_brightness.plus30">
+				<source>+30%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation">
+				<source>Saturation</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus30">
+				<source>-30%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus20">
+				<source>-20%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus10">
+				<source>-10%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.dont_change">
+				<source>don't change</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.plus10">
+				<source>+10%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.plus20">
+				<source>+20%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.plus30">
+				<source>+30%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_filter">
+				<source>Filter (disables above effects)</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_filter.nofilter">
+				<source>#nofilter</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_filter.1977">
+				<source>1977</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_filter.aden">
+				<source>Aden</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_filter.brannan">
+				<source>Brannan</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_filter.brooklyn">
+				<source>Brooklyn</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
