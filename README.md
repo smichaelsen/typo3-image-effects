@@ -54,9 +54,10 @@ You can use any arguments just like you would with `<f:image>`, just notice:
 * Pass the uid of the sys_file_reference as `src`
 * Set `treatIdAsReference` to `1`
 
-## Attribution
+## Attributions
 
 ![Sample Image](Resources/Public/Images/sample_nofilter.jpg)<br>
 Sample image shown in the filter selector in the backend was published on [flickr](https://www.flickr.com/photos/a-issleib/9348841209/) by Andreas Issleib under
-[CC-BY-NC-ND 2.0 License](https://creativecommons.org/licenses/by-nc-nd/2.0/). The author kindly approved the usage of derivates
-of his photo for the purpose of this software. Thank you!
+[CC-BY-NC 2.0 License](https://creativecommons.org/licenses/by-nc/2.0/), thank you!
+
+The filters are inspired from [CSSgram](https://una.im/CSSgram/).
