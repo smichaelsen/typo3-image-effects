@@ -2,7 +2,7 @@
     "name": "smichaelsen/image-effects",
     "type": "typo3-cms-extension",
     "require": {
-        "typo3/cms-core": "^7.6"
+        "typo3/cms-core": "^8.7"
     },
     "autoload": {
         "psr-4": {

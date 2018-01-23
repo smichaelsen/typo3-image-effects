@@ -10,49 +10,24 @@ Provides new fields for image file references that let you select effects or fil
 
 ## Configuration
 
-The new fields are **not** added to `sys_file_reference` globally, but you have to enable/configure this per field.
-A TCA image field definition could look like this:
+The new fields are **not** added to `sys_file_reference` globally, but you have to enable/configure this per field:
 
 ````php
-$GLOBALS['TCA']['tx_myext_mytable']['columns']['images'] = [
-   'label' => 'Images',
-   'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-       'images',
-       [
-           'maxitems' => 99,
-           'foreign_types' => [
-               \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                   'showitem' => '
-            --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-            --palette--;;filePalette,
-            --div--;Image Effects,
-            --palette--;LLL:EXT:image_effects/Resources/Private/Language/locallang_db.xlf:sys_file_reference.imageEffectsPalette;imageEffectsPalette,
-            tx_imageeffects_filter
-                '
-               ],
-           ],
-       ],
-       $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-   ),
-]
+\Smichaelsen\ImageEffects\Utility\TcaUtility::addImageEffectsToField('tt_content', 'image');
 ````
-
-Notice the `imageEffectsPalette` palette and the `tx_imageeffects_filter` field which are provided by this extension.
 
 ## Usage
 
-To output the file reference in fluid you need to use the custom `ImageViewHelper` provided by this extension:
+Just use the `f:image` or `f:uri.image` ViewHelper as usual. This extension xclasses these ViewHelpers.
 
-````xml
-<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" xmlns:ifx="http://typo3.org/ns/Smichaelsen/ImageEffects/ViewHelpers">
-<ifx:image src="{myFileReference.uid}" treatIdAsReference="1" height="540" />
-</html>
-````
+## Versioning and Updates
 
-You can use any arguments just like you would with `<f:image>`, just notice:
+This extensions uses [semantic versioning](https://semver.org).
 
-* Pass the uid of the sys_file_reference as `src`
-* Set `treatIdAsReference` to `1`
+### Breaking changes from 0.1 to 1.x
+
+* Version 1.x just works with TYPO3 8.7.
+* The keys for the effect and filter settings had to be changed, so you have to set filters again after the update. Sorry. 
 
 ## Attributions
 
