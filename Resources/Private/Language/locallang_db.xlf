@@ -33,6 +33,24 @@
 			<trans-unit id="sys_file_reference.tx_imageeffects_saturation">
 				<source>Saturation</source>
 			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus90">
+				<source>-90%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus80">
+				<source>-80%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus70">
+				<source>-70%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus60">
+				<source>-60%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus50">
+				<source>-50%</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus40">
+				<source>-40%</source>
+			</trans-unit>
 			<trans-unit id="sys_file_reference.tx_imageeffects_saturation.minus30">
 				<source>-30%</source>
 			</trans-unit>
@@ -83,6 +101,9 @@
 			</trans-unit>
 			<trans-unit id="sys_file_reference.tx_imageeffects_filter.hudson">
 				<source>Hudson</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_imageeffects_filter.inkwell">
+				<source>Inkwell</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -1,73 +1,57 @@
 <?php
 namespace Smichaelsen\ImageEffects\ViewHelpers;
 
+use Smichaelsen\ImageEffects\ViewHelpers\Traits\AddImageEffectsToProcessingInstructions;
+use TYPO3\CMS\Core\Imaging\ImageManipulation\CropVariantCollection;
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
-use TYPO3\CMS\Core\Resource\FileInterface;
-use TYPO3\CMS\Core\Resource\FileReference;
-use TYPO3\CMS\Extbase\Domain\Model\AbstractFileFolder;
+use TYPO3\CMS\Fluid\Core\ViewHelper\Exception;
 
 class ImageViewHelper extends \TYPO3\CMS\Fluid\ViewHelpers\ImageViewHelper
 {
 
+    use AddImageEffectsToProcessingInstructions;
+
     /**
-     * Resizes a given image (if required) and renders the respective img tag
-     *
-     * @see https://docs.typo3.org/typo3cms/TyposcriptReference/ContentObjects/Image/
-     * @param string $src a path to a file, a combined FAL identifier or an uid (int). If $treatIdAsReference is set, the integer is considered the uid of the sys_file_reference record. If you already got a FAL object, consider using the $image parameter instead
-     * @param string $width width of the image. This can be a numeric value representing the fixed width of the image in pixels. But you can also perform simple calculations by adding "m" or "c" to the value. See imgResource.width for possible options.
-     * @param string $height height of the image. This can be a numeric value representing the fixed height of the image in pixels. But you can also perform simple calculations by adding "m" or "c" to the value. See imgResource.width for possible options.
-     * @param int $minWidth minimum width of the image
-     * @param int $minHeight minimum height of the image
-     * @param int $maxWidth maximum width of the image
-     * @param int $maxHeight maximum height of the image
-     * @param bool $treatIdAsReference given src argument is a sys_file_reference record
-     * @param FileInterface|AbstractFileFolder $image a FAL object
-     * @param string|bool $crop overrule cropping of image (setting to FALSE disables the cropping set in FileReference)
-     * @param bool $absolute Force absolute URL
-     *
-     * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception
-     * @return string Rendered tag
+     * @inheritdoc
      */
-    public function render($src = null, $width = null, $height = null, $minWidth = null, $minHeight = null, $maxWidth = null, $maxHeight = null, $treatIdAsReference = false, $image = null, $crop = null, $absolute = false)
+    public function render()
     {
-        if (is_null($src) && is_null($image) || !is_null($src) && !is_null($image)) {
-            throw new \TYPO3\CMS\Fluid\Core\ViewHelper\Exception('You must either specify a string src or a File object.', 1382284106);
+        if ((is_null($this->arguments['src']) && is_null($this->arguments['image'])) || (!is_null($this->arguments['src']) && !is_null($this->arguments['image']))) {
+            throw new Exception('You must either specify a string src or a File object.', 1382284106);
         }
 
         try {
-            $image = $this->imageService->getImage($src, $image, $treatIdAsReference);
-            if ($crop === null) {
-                $crop = $image instanceof FileReference ? $image->getProperty('crop') : null;
+            $image = $this->imageService->getImage($this->arguments['src'], $this->arguments['image'], $this->arguments['treatIdAsReference']);
+            $cropString = $this->arguments['crop'];
+            if ($cropString === null && $image->hasProperty('crop') && $image->getProperty('crop')) {
+                $cropString = $image->getProperty('crop');
             }
+            $cropVariantCollection = CropVariantCollection::create((string)$cropString);
+            $cropVariant = $this->arguments['cropVariant'] ?: 'default';
+            $cropArea = $cropVariantCollection->getCropArea($cropVariant);
             $processingInstructions = [
-                'width' => $width,
-                'height' => $height,
-                'minWidth' => $minWidth,
-                'minHeight' => $minHeight,
-                'maxWidth' => $maxWidth,
-                'maxHeight' => $maxHeight,
-                'crop' => $crop,
+                'width' => $this->arguments['width'],
+                'height' => $this->arguments['height'],
+                'minWidth' => $this->arguments['minWidth'],
+                'minHeight' => $this->arguments['minHeight'],
+                'maxWidth' => $this->arguments['maxWidth'],
+                'maxHeight' => $this->arguments['maxHeight'],
+                'crop' => $cropArea->isEmpty() ? null : $cropArea->makeAbsoluteBasedOnFile($image),
             ];
 
             // START: This is the section we inserted into the original function
-            if ($image instanceof FileReference) {
-                if ($image->getProperty('tx_imageeffects_filter')) {
-                    $processingInstructions['additionalParameters'] = $image->getProperty('tx_imageeffects_filter');
-                } else {
-                    $processingInstructions['additionalParameters'] = '';
-                    if ($image->getProperty('tx_imageeffects_brightness')) {
-                        $processingInstructions['additionalParameters'] .= ' ' . $image->getProperty('tx_imageeffects_brightness') . ' ';
-                    }
-                    if ($image->getProperty('tx_imageeffects_saturation')) {
-                        $processingInstructions['additionalParameters'] .= ' ' . $image->getProperty('tx_imageeffects_saturation') . ' ';
-                    }
-                }
-            }
+            $processingInstructions = self::addImageEffectsToProcessingInstructions($image, $processingInstructions);
             // END
 
             $processedImage = $this->imageService->applyProcessingInstructions($image, $processingInstructions);
-            $imageUri = $this->imageService->getImageUri($processedImage, $absolute);
+            $imageUri = $this->imageService->getImageUri($processedImage, $this->arguments['absolute']);
 
+            if (!$this->tag->hasAttribute('data-focus-area')) {
+                $focusArea = $cropVariantCollection->getFocusArea($cropVariant);
+                if (!$focusArea->isEmpty()) {
+                    $this->tag->addAttribute('data-focus-area', $focusArea->makeAbsoluteBasedOnFile($image));
+                }
+            }
             $this->tag->addAttribute('src', $imageUri);
             $this->tag->addAttribute('width', $processedImage->getProperty('width'));
             $this->tag->addAttribute('height', $processedImage->getProperty('height'));
